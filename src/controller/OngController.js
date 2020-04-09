@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+const Id = require('../util/GenerateRandomNumber')
 const ongDao = require('../dao/OngDao');
 
 class OngController {
@@ -8,7 +8,7 @@ class OngController {
   async create(request, response) {
     const { name, email, whatsapp, city, uf } = request.body;
 
-    const ongNumber = crypto.randomBytes(4).toString('HEX');
+    const ongNumber = Id.generateId();
 
     await ongDao._create({name, email, whatsapp, ongNumber, city, uf })
 
