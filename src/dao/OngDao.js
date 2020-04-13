@@ -14,8 +14,9 @@ class OngDao {
 
   async _findById(Id) {
     return dao('ong')
-            .where('id', Id)
-            .select('*')
+            .join('incidente','ong.id','=','incidente.ongId')
+            .where('ong.id', Id)
+            .select(['ong.ongNumber','incidente.id', 'incidente.title', 'incidente.description', 'incidente.value'])
   }
   
 }

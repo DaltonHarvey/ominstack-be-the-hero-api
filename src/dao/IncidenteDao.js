@@ -17,6 +17,16 @@ class IncidenteDao {
             .select(['incidente.*', 'ong.name', 'ong.ongNumber']);
   }
 
+  
+  // async _findAllById(Id) {
+
+  //   return dao('incidente')
+  //           .join('ong','ong.id','=','incidente.ongId')
+  //           .where('incidente.ongId', Id)
+  //           .select(['incidente.*', 'ong.name', 'ong.ongNumber'])
+            
+  // }
+
   async _getIncidentSize() {
 
     return dao('incidente').count()

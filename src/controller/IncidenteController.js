@@ -10,7 +10,7 @@ class IncidenteController {
     const { title, description, value } = request.body;
     const ongId = request.headers.authorization;
 
-    const [Id] = await incidenteDao._create({ title, description, value, ongId })
+    const [ Id ] = await incidenteDao._create({ title, description, value, ongId })
 
     return response.json({ Id: Id });
   }
@@ -19,7 +19,7 @@ class IncidenteController {
 
     const { page = 1 } =  request.query;
 
-    const [count] = await incidenteDao._getIncidentSize();
+    const [ count ] = await incidenteDao._getIncidentSize();
 
     response.header(appString.headerSize, count['count(*)']);
 

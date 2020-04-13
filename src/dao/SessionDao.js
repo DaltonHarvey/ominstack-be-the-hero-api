@@ -7,7 +7,7 @@ class SessionDao {
   async _findOngByNumber(Id) {
     return dao('ong')
             .where('ongNumber', Id)
-            .select('name')
+            .select('name','id')
             .first();
   }
 }
